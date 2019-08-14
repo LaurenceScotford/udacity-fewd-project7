@@ -1,0 +1,18 @@
+{
+  "name": "udacity-fewd-project5",
+  "version": "1.0.0",
+  "description": "Solution for Udacity Front End Web Developer Project 5",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laurence Scotford",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-connect": "^5.7.0"
+  }
+}

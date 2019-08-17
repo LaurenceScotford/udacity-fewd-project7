@@ -73,7 +73,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  */
 initMap = () => {
   self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
+        center: [40.713200, -73.982000],
         zoom: 12,
         scrollWheelZoom: false
       });
@@ -163,13 +163,22 @@ createRestaurantHTML = (restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
+  const details = document.createElement('div');
+  details.className = 'restaurant-details';
+
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
-  li.append(name);
+  details.append(name);
+
+  const cuisine = document.createElement('p');
+  cuisine.innerHTML = restaurant.cuisine_type;
+  details.append(cuisine);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
-  li.append(neighborhood);
+  details.append(neighborhood);
+
+  li.append(details);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;

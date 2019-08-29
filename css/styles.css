@@ -292,3 +292,68 @@ nav .home_button {
 #restaurant-hours td {
   color: #666;
 }
+
+/* ====================== Mobile devices (wide screen) ====================== */
+@media only screen and (min-width: 500px) and (max-height: 500px) {
+	nav {
+	  height: 2em;
+	}
+
+	nav h1 {
+		padding-top: 0;
+	}
+
+	nav h1 a {
+		font-size: 0.5em;
+		line-height: 1;
+	}
+
+	#map {
+		height: 200px;
+	}
+
+	#restaurants {
+		width: 100%;
+	}
+
+	.filter-options {
+		height: 2.5em;
+	}
+
+	.filter-options select {
+		height: 2em;
+		font-size: 0.75em;
+	}
+
+	#restaurants-list {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	#restaurants-list li {
+		width: 48%;
+	}
+
+	#restaurants-list li .restaurant-details h1 {
+		font-size: 0.75em;
+	}
+
+	#restaurants-list li .restaurant-details p {
+		font-size: 0.75em;
+	}
+
+	#restaurants-list p {
+		font-size: 0.75em;
+	}
+
+	#restaurants-list li a {
+		padding: 0.5em 1.5em 0.5em;
+		font-size: 0.75em;
+	}
+
+	#footer {
+		padding: 1em;
+	}
+}

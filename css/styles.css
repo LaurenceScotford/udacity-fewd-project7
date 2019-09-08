@@ -65,7 +65,8 @@ nav {
 nav.breadcrumb {
 	background-color: #eee;
 	font-size: 1em;
-
+	text-align: left;
+	height: 1.5em;
 }
 
 nav h1 {
@@ -158,7 +159,6 @@ nav .home_button {
   list-style: none inside none;
   margin: 0;
   padding: 0;
-  /* text-align: center; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -275,12 +275,8 @@ nav .home_button {
   border-bottom: 0.1em solid #d9d9d9;
   border-top: 0.1em solid #fff;
 	padding: 0.5em;
-  /* padding: 140px 40px 30px; */
   width: 100%;
 }
-/* #reviews-container {
-  padding: 30px 40px 80px;
-} */
 #reviews-container h2 {
   color: #f58500;
   font-size: 2em;
@@ -307,6 +303,10 @@ nav .home_button {
 #restaurant-hours td {
   color: #666;
 }
+.review-header {
+	font-weight: bold;
+	line-height: 0.5em;
+}
 
 /* ======================  (500 px wide screen) ====================== */
 @media only screen and (min-width: 500px)  {
@@ -323,6 +323,11 @@ nav .home_button {
 		line-height: 1;
 	}
 
+	#map-filter-container {
+		display: flex;
+		height: 10em;
+	}
+
 	#map {
 		height: 100%;
 	}
@@ -332,26 +337,41 @@ nav .home_button {
 	}
 
 	#map-container {
-		height: 18em;
+		height: 100%;
+		width: 70%;
 	}
 
 	.inside #map-container {
 		height: 12em;
+		width: 53%;
+	}
+
+	.inside #restaurant-address {
+		width: 42%;
+		font-size: 1em;
+		padding: 0.5em;
 	}
 
 	.filter-options {
-		height: 2.5em;
+		height: 100%;
+		width: 30%;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		padding: 0.4em;
 	}
 
 	.filter-options h2 {
 		font-size: 0.75em;
-		padding-top: 0.4em;
 		line-height: 1.2em;
+		width: 100%;
 	}
 
 	.filter-options select {
 		height: 2em;
-		font-size: 0.75em;
+		font-size: 0.7em;
+		width: 90%;
+		margin: 0.4em;
 	}
 
 	#restaurants-list {
@@ -384,6 +404,10 @@ nav .home_button {
 
 	#breadcrumb {
 		font-size: 0.75em;
+	}
+
+	#address-map-container {
+		display: flex;
 	}
 
  .inside	#maincontent {
@@ -431,6 +455,8 @@ nav .home_button {
 		margin: 0;
 		font-size: 0.8em;
 		padding-top: 0.5em;
+		color: #ddd;
+		background-color: #333;
 	}
 
 	#reviews-container h2 {
@@ -450,12 +476,21 @@ nav .home_button {
 		margin: 1%;
 	}
 
+	#reviews-list li p {
+		font-size: 2em;
+		line-height: 1.5em;
+	}
+
 	#footer {
 		padding: 1em;
 	}
 
 	.inside #footer {
 		top: 3.5em;
+	}
+
+	#reviews-list li p.review-header {
+		line-height: 0.5em;
 	}
 }
 
@@ -467,6 +502,7 @@ nav .home_button {
 
 	.inside #map-container {
 		height: 8em;
+		width: 65%;
 	}
 }
 
@@ -501,7 +537,7 @@ nav .home_button {
 	}
 
 	.filter-options {
-		height: 1.8em;
+		height: 100%;
 	}
 
 	.filter-options h2 {

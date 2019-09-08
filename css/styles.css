@@ -35,7 +35,7 @@ a img{
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 2em;
+  margin: 0 0 0.5em;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -61,6 +61,13 @@ nav {
   background-color: #252831;
   text-align:center;
 }
+
+nav.breadcrumb {
+	background-color: #eee;
+	font-size: 1em;
+
+}
+
 nav h1 {
   margin: auto;
 	padding-top: 1em;
@@ -127,6 +134,13 @@ nav .home_button {
   background-color: #3397DB;
   align-items: center;
 }
+
+.filter-options h2 {
+	font-size: 1em;
+	width: 15%;
+	color: white;
+}
+
 .filter-options select {
   background-color: white;
   border: 0.1em solid #fff;
@@ -135,7 +149,7 @@ nav .home_button {
   height: 3.5em;
   letter-spacing: 0;
   padding: 0 0.1em;
-  width: 42%;
+  width: 39%;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -272,7 +286,8 @@ nav .home_button {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: -0.1em;
-  padding-bottom: 0.1em;
+  padding: 0.5em 0.1em;
+	margin: 0;
 }
 #reviews-list {
   margin: 0;
@@ -283,9 +298,9 @@ nav .home_button {
   border: 0.2em solid #f3f3f3;
   display: block;
   list-style-type: none;
-  margin: 0 0 3em;
+  margin: 0 0 1.5em;
   overflow: hidden;
-  padding: 0 2em 2em;
+  padding: 0 1em 1em;
   position: relative;
   width: 100%;
 }
@@ -293,8 +308,8 @@ nav .home_button {
   color: #666;
 }
 
-/* ====================== Mobile devices (wide screen) ====================== */
-@media only screen and (min-width: 500px) and (max-height: 500px) {
+/* ======================  (500 px wide screen) ====================== */
+@media only screen and (min-width: 500px)  {
 	nav {
 	  height: 2em;
 	}
@@ -309,15 +324,29 @@ nav .home_button {
 	}
 
 	#map {
-		height: 200px;
+		height: 100%;
 	}
 
 	#restaurants {
 		width: 100%;
 	}
 
+	#map-container {
+		height: 18em;
+	}
+
+	.inside #map-container {
+		height: 12em;
+	}
+
 	.filter-options {
 		height: 2.5em;
+	}
+
+	.filter-options h2 {
+		font-size: 0.75em;
+		padding-top: 0.4em;
+		line-height: 1.2em;
 	}
 
 	.filter-options select {
@@ -353,7 +382,160 @@ nav .home_button {
 		font-size: 0.75em;
 	}
 
+	#breadcrumb {
+		font-size: 0.75em;
+	}
+
+ .inside	#maincontent {
+		/* display: flex;
+		flex-wrap: wrap;
+		flex-direction: row; */
+		top: 3.5em;
+	}
+
+	#restaurant-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	#restaurant-name {
+		margin: 0;
+		font-size: 1em;
+		width: 100%;
+	}
+
+	#restaurant-container img {
+		width: 40%;
+	}
+
+	#restaurant-about {
+		width: 60%;
+	}
+
+	#restaurant-cuisine {
+		width: 100%;
+		font-size: 0.75em;
+		margin: 0 0.2em;
+	}
+
+	#restaurant-hours {
+		margin: 0 0.2em;
+	}
+
+	#restaurant-hours td {
+		font-size: 0.7em;
+	}
+
+	#restaurant-address {
+		margin: 0;
+		font-size: 0.8em;
+		padding-top: 0.5em;
+	}
+
+	#reviews-container h2 {
+		font-size: 1em;
+		padding: 0.25em 0.2em;
+	}
+
+	#reviews-list {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+
+	#reviews-list li {
+		font-size: 0.3em;
+		width: 48%;
+		margin: 1%;
+	}
+
 	#footer {
 		padding: 1em;
+	}
+
+	.inside #footer {
+		top: 3.5em;
+	}
+}
+
+/* ======================  (wide screen mobile devices) ====================== */
+@media only screen and (min-width: 500px) and (orientation: landscape) {
+	#map-container {
+		height: 10em;
+	}
+
+	.inside #map-container {
+		height: 8em;
+	}
+}
+
+/* ======================  (1000 px wide screen) ====================== */
+@media only screen and (min-width: 1000px) {
+	#restaurants-list li {
+		width: 32%;
+	}
+
+	#restaurants-list li .restaurant-details h1 {
+		font-size: 0.5em;
+	}
+
+	#restaurants-list li .restaurant-details p {
+		font-size: 0.5em;
+	}
+
+	#restaurants-list p {
+		font-size: 0.4em;
+	}
+
+	#restaurants-list li a {
+		font-size: 0.6em;
+	}
+
+	#restaurant-hours td {
+		font-size: 0.6em;
+	}
+
+	#restaurant-address {
+		font-size: 0.7em;
+	}
+
+	.filter-options {
+		height: 1.8em;
+	}
+
+	.filter-options h2 {
+		font-size: 0.6em;
+		line-height: 1.2em;
+	}
+
+	.filter-options select {
+		height: 1.2em;
+		font-size: 0.6em;
+	}
+
+	#reviews-list li {
+		width: 31%;
+		margin: 1%;
+	}
+
+	#reviews-list li p {
+		font-size: 1.5em;
+	}
+}
+
+/* ======================  (1200 px wide screen) ====================== */
+@media only screen and (min-width: 1200px) {
+	body {
+		width: 1200px;
+		margin: 0 auto;
+	}
+
+	.inside header {
+	  position: fixed;
+	  top: 0;
+		left: inherit;
+	  width: 1200px;
+		display: block;
 	}
 }

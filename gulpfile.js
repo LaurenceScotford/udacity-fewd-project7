@@ -41,6 +41,17 @@ function buildJs() {
     .pipe(connect.reload());
 }
 
+function cleanSw(cb) {
+  return del(['dist/sw.js']);
+  cb();
+}
+
+function buildSw() {
+  return src('sw.js')
+    .pipe(dest('dist/'))
+    .pipe(connect.reload());
+}
+
 function cleanData(cb) {
   return del(['dist/data']);
   cb();
@@ -68,7 +79,7 @@ function serve(cb) {
     root: 'dist',
     livereload: true
   }, function() {
-    this.server.on('close', cb) 
+    this.server.on('close', cb)
   });
 }
 
@@ -76,6 +87,7 @@ function watcher(cb) {
   watch('img/*', series(cleanImages, buildImages));
   watch('css/*', series(cleanCss, buildCss));
   watch('js/*', series(cleanJs, buildJs));
+  watch('sw.js', series(cleanSw, buildSw));
   watch('data/*', series(cleanData, buildData));
   watch('*.html', series(cleanHtml, buildHtml));
   cb();
@@ -83,5 +95,5 @@ function watcher(cb) {
 
 exports.clean = series(clean);
 exports.serve = series(serve);
-exports.build = series(clean, buildImages, buildCss, buildJs, buildData, buildHtml);
-exports.default = parallel(serve, series(clean, buildImages, buildCss, buildJs, buildData, buildHtml, watcher));
+exports.build = series(clean, buildImages, buildCss, buildJs, buildSw, buildData, buildHtml);
+exports.default = parallel(serve, series(clean, buildImages, buildCss, buildJs, buildSw, buildData, buildHtml, watcher));

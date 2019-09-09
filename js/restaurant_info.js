@@ -86,10 +86,31 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
-  const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  const picture = document.getElementById('restaurant-pic');
+
+  const imgUrl = DBHelper.imageUrlForRestaurant(restaurant);
+
+  let source = document.createElement('source');
+  source.media = '(max-width: 499px)';
+  source.srcset = `/img/sml_${imgUrl} 1x, /img/med_${imgUrl} 2x, /img/${imgUrl} 4x`;
+  picture.append(source);
+
+  source = document.createElement('source');
+  source.media = '(min-width: 500px)';
+  source.srcset = `/img/med_${imgUrl} 1x, /img/${imgUrl} 2x`;
+  picture.append(source);
+
+  source = document.createElement('source');
+  source.media = '(min-width: 1000px)';
+  source.srcset = `/img/${imgUrl}`;
+  picture.append(source);
+
+  const image = document.createElement('img');
+  image.id = 'restaurant-img';
+  image.className = 'restaurant-img';
+  image.src = '/img/' + imgUrl;
   image.alt = restaurant.name + ' restaurant';
+  picture.append(image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -129,6 +150,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.id='reviews-header';
   container.appendChild(title);
 
   if (!reviews) {

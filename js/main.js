@@ -146,11 +146,31 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  const picture = document.createElement('picture');
+
+  const imgUrl = DBHelper.imageUrlForRestaurant(restaurant);
+
+  let source = document.createElement('source');
+  source.media = '(max-width: 499px)';
+  source.srcset = `/img/sml_${imgUrl} 1x, /img/med_${imgUrl} 2x, /img/${imgUrl} 4x`;
+  picture.append(source);
+
+  source = document.createElement('source');
+  source.media = '(min-width: 500px)';
+  source.srcset = `/img/med_${imgUrl} 1x, /img/${imgUrl} 2x`;
+  picture.append(source);
+
+  source = document.createElement('source');
+  source.media = '(min-width: 1000px)';
+  source.srcset = `/img/${imgUrl}`;
+  picture.append(source);
+
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = '/img/' + imgUrl;
   image.alt = restaurant.name + ' restaurant';
-  li.append(image);
+  picture.append(image);
+  li.append(picture);
 
   const details = document.createElement('div');
   details.className = 'restaurant-details';
@@ -174,7 +194,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
+  more.innerHTML = `View details for<br>${restaurant.name}`;
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more);
 

@@ -1,7 +1,7 @@
 {
   "name": "udacity-fewd-project5",
   "version": "1.0.0",
-  "description": "Solution for Udacity Front End Web Developer Project 5",
+  "description": "Solution for Udacity Front End Web Developer Project 7",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,33 +1,21 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
+# Udacity Front-End Web Developer Nanodegree
+## Project 7 - Restaurant Reviews App
 
-## Project Overview: Stage 1
+This project is a responsive and accessible web app with offline capability. It is adapted from the base code supplied by Udacity for the project.
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+### Target platforms
+This site is designed for recent browsers (across multiple devices) that support HTML5 and ES6.
 
-### Specification
+### How to install and run this app
+To run this app locally you will need to have node and npm installed.
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality.
+1. Clone the repository into a local repository
+2. Create a terminal at the root of the local repository and enter **npm install** at the command line. This will install development dependencies locally (del, gulp, gulp-cli, gulp-connect).
+3. Once dependencies have been installed, enter **gulp** at the command line. This will build the app and open a webserver at http://localhost:8080
+4. Open a recent ES6 compliant browser, e.g. Chrome and navigate to http://localhost:8080
+5. To close the server at the end of the session, return to the terminal and enter **ctrl+C** at the command line.
 
-### Project Rubric
-
-Your project will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). Please review for detailed project requirements. The rubric should be a resource you refer to periodically to make sure your project meets specifications.
-
-### What do I do from here?
-
-1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
-
-    * In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
-   * Note -  For Windows systems, Python 3.x is installed as `python` by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
-2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
-3. Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
-4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
-
-## Leaflet.js and Mapbox:
-
-This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
-
-### Note about ES6
-
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write.
+### Features
+- Responsive design - works across multiple devices (from mobile to desktop)
+- Accessible to users using assistive technologies (caveat: the version of leaflet.js specified for this project doesn't work particularly nicely with screen readers - see https://github.com/Leaflet/Leaflet/issues/3210)
+- Caches resources for offline access - the core app and current version of the restaurant data will be cached immediately when the app is first launched. The strategy for resources that may change dynamically, e.g. images, third-party code and assets for maps, is to cache them as they are encountered. Note that the app will always try to get the latest version of a resource from the network, but will fall back to a cached version if the network version is unavailable.

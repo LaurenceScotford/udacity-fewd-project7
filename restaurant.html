@@ -13,9 +13,10 @@
   <title>Restaurant Info</title>
 </head>
 
-<body class="inside">
+<body class="inside" tabindex="-1">
   <!-- Beginning header -->
   <header class="inside-header">
+    <a href="#maincontent" class="skip-link">Skip to main content</a>
     <!-- Beginning nav -->
     <nav>
       <h1 class="title"><a class="title-link" href="/">Restaurant Reviews</a></h1>
@@ -32,10 +33,10 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent" class="inside-maincontent">
+  <main id="maincontent" class="inside-maincontent" tabindex="-1">
     <!-- Beginning restaurant -->
     <section id="restaurant-container" class="inside-restaurant-container" aria-labelledby="restaurant-name">
-      <h1 id="restaurant-name"></h1>
+      <h2 id="restaurant-name"></h2>
       <picture id="restaurant-pic"></picture>
       <div id="restaurant-about" class="restaurant-about">
         <p id="restaurant-cuisine"></p>
@@ -47,7 +48,7 @@
     <div id="address-map-container" class="address-map-container">
       <p id="restaurant-address"></p>
       <section id="map-container" class="inside-map-container" aria-label="Restaurant map">
-        <div id="map" class="inside-map"></div>
+        <div id="map" class="inside-map" role="application"></div>
       </section>
     </div>
     <!-- End map -->

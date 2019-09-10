@@ -14,6 +14,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 /**
+ *  Set filter options to focus on restaurants list when changed
+ */
+ document.querySelector('#neighborhoods-select').addEventListener('change', (event) => {
+   document.querySelector('#restaurants-list').focus();
+ });
+
+ document.querySelector('#cuisines-select').addEventListener('change', (event) => {
+   document.querySelector('#restaurants-list').focus();
+ });
+
+/**
  * Fetch all neighborhoods and set their HTML.
  */
 fetchNeighborhoods = () => {

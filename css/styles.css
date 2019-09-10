@@ -80,11 +80,11 @@ nav {
   text-align:center;
 }
 
-.breadcrumb {
+.breadcrumb-nav {
 	background-color: #eee;
 	font-size: 1em;
 	text-align: left;
-	height: 1.5em;
+	height: 3em;
 }
 
 .title {
@@ -99,11 +99,6 @@ nav {
   font-weight: 200;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-}
-
-.breadcrumb-nav {
-	background-color: #eee;
-	height: 3em;
 }
 
 .breadcrumb {
@@ -465,7 +460,7 @@ select {
 	}
 
 	.breadcrumb-nav {
-		height: 1.5em;
+		height: 1em;
 	}
 
 	.breadcrumb {
@@ -477,7 +472,7 @@ select {
 	}
 
  .inside-maincontent {
-			top: 3.5em;
+			top: 3.75em;
 	}
 
 	.inside-restaurant-container {

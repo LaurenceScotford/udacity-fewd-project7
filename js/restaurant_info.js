@@ -35,22 +35,6 @@ initMap = () => {
   });
 }
 
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
-
 /**
  * Get current restaurant from page URL.
  */
@@ -81,12 +65,15 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
+  name.classList.add('inside-restaurant-name');
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
+  address.classList.add('restaurant-address');
   address.innerHTML = restaurant.address;
 
   const picture = document.getElementById('restaurant-pic');
+  picture.classList.add('restaurant-pic');
 
   const imgUrl = DBHelper.imageUrlForRestaurant(restaurant);
 
@@ -107,12 +94,13 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.createElement('img');
   image.id = 'restaurant-img';
-  image.className = 'restaurant-img';
+  image.className = 'inside-restaurant-img';
   image.src = '/img/' + imgUrl;
   image.alt = restaurant.name + ' restaurant';
   picture.append(image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.classList.add('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -132,10 +120,12 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
+    day.classList.add('restaurant-hours');
     day.innerHTML = key;
     row.appendChild(day);
 
     const time = document.createElement('td');
+    time.classList.add('restaurant-hours');
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
 
@@ -149,6 +139,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.classList.add('reviews-header');
   title.innerHTML = 'Reviews';
   title.id='reviews-header';
   container.appendChild(title);
@@ -160,6 +151,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     return;
   }
   const ul = document.getElementById('reviews-list');
+  ul.classList.add('reviews-list');
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
@@ -171,6 +163,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.classList.add('reviews-list-item');
   const name = document.createElement('p');
   name.classList.add('review-header');
   name.innerHTML = review.name;
@@ -187,6 +180,7 @@ createReviewHTML = (review) => {
   li.appendChild(rating);
 
   const comments = document.createElement('p');
+  comments.classList.add('reviews-list-text');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
 
@@ -199,6 +193,7 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
+  li.classList.add('breadcrumb-item');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
 }

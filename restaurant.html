@@ -15,16 +15,15 @@
 
 <body class="inside">
   <!-- Beginning header -->
-  <header>
+  <header class="inside-header">
     <!-- Beginning nav -->
     <nav>
-      <!-- <a href="/" class="home_button material-icons">home</a> -->
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1 class="title"><a class="title-link" href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <nav class="breadcrumb" aria-label="breadcrumb">
-      <ul id="breadcrumb">
-        <li><a href="/">Home</a></li>
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+      <ul id="breadcrumb"  class="breadcrumb">
+        <li class="breadcrumb-item"><a class="breadcrumb-link" href="/">Home</a></li>
       </ul>
     </nav>
     <!-- End breadcrumb -->
@@ -33,27 +32,27 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent">
+  <main id="maincontent" class="inside-maincontent">
     <!-- Beginning restaurant -->
-    <section id="restaurant-container" aria-labelledby="restaurant-name">
+    <section id="restaurant-container" class="inside-restaurant-container" aria-labelledby="restaurant-name">
       <h1 id="restaurant-name"></h1>
       <picture id="restaurant-pic"></picture>
-      <div id="restaurant-about">
+      <div id="restaurant-about" class="restaurant-about">
         <p id="restaurant-cuisine"></p>
-        <table id="restaurant-hours"></table>
+        <table id="restaurant-hours" class="restaurant-opening"></table>
       </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning map -->
-    <div id="address-map-container">
+    <div id="address-map-container" class="address-map-container">
       <p id="restaurant-address"></p>
-      <section id="map-container" aria-label="Restaurant map">
-        <div id="map"></div>
+      <section id="map-container" class="inside-map-container" aria-label="Restaurant map">
+        <div id="map" class="inside-map"></div>
       </section>
     </div>
     <!-- End map -->
     <!-- Beginning reviews -->
-    <section id="reviews-container" aria-labelledby="reviews-header">
+    <section id="reviews-container" class="container" aria-labelledby="reviews-header">
       <ul id="reviews-list"></ul>
     </section>
     <!-- End reviews -->
@@ -61,7 +60,7 @@
   <!-- End main -->
 
   <!-- Beginning footer -->
-  <footer id="footer">
+  <footer id="footer" class="inside-footer">
     Copyright (c) 2019 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
   <!-- End footer -->
